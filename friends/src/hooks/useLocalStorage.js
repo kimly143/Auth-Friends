@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 // useCallback take a function and a dependency array and return a memoized value.
 
 export default function useLocalStorage(key, initialValue) {
+	
 	const [ storedValue, setStoredValue ] = useState(() => {
 		// Get from local storage by key
 		const item = localStorage.getItem(key);

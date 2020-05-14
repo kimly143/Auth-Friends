@@ -9,10 +9,12 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 
 function App() {
+  // token and setToken as an array which return in useLocalStorage
 	const tokenTools = useLocalStorage('authToken', null);
 
 	return (
 		<div className="App">
+      {/* everything that wrap inside this provider can access this value tokrnTools*/}
 			<TokenContext.Provider value={tokenTools}>
 				<Router>
 					<Logout />
