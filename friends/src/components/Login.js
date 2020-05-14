@@ -5,11 +5,13 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import useForm from '../hooks/useForm';
+import useAuthToken from '../hooks/useAuthToken';
 
-export default function Login() {
+export default function Login(props) {
+	const [ token, setToken ] = useAuthToken();
 	const [ formState, changeHandler ] = useForm({
-		username: '',
-		password: ''
+		username: 'Lambda School',
+		password: 'i<3Lambd4'
 	});
 
 	//using async
@@ -21,7 +23,8 @@ export default function Login() {
 		const response = await axios.post('http://localhost:5000/api/login', formState);
 		console.log(response.data);
 
-		localStorage.setItem('authToken', response.data.payload);
+		setToken(response.data.payload);
+		props.history.push('/');
 	};
 
 	return (

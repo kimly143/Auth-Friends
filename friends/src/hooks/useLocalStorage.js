@@ -12,7 +12,7 @@ export default function useLocalStorage(key, initialValue) {
 	const setValue = useCallback((newValue) => {
 		setStoredValue(newValue);
 		localStorage.setItem(key, JSON.stringify(newValue));
-	});
+	}, [key]);
 
 	return [ storedValue, setValue ];
 }
