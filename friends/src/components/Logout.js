@@ -15,7 +15,6 @@ export default function Logout() {
                 setToken(null);
                 history.push('/login');
             }}>Logout</Button>
-
         </div>
     )
 }
